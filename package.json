@@ -8,7 +8,12 @@
   },
   "author": "Salvador Ariza",
   "license": "ISC",
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/harukogaki/fulljs"
+  },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
   }
 }
