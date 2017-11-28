@@ -1,11 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
-import PropTypes from 'prop-types';
+import Header from './components/Header';
 
-const App = ({message}) => {  return(<h1 className='text-center'>Hello {message}</h1>); };
+const App = () => {
+  return (
+    <div>
+      <Header message='Naming Contest'/>
+      <div>
 
-App.propTypes = {
-  message: PropTypes.string.isRequired
+      </div>
+    </div>
+  );
 };
 
-render(<App message='Sal'/>, document.getElementById('root'));
+render(<App/>, document.getElementById('root'));
