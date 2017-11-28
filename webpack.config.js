@@ -18,6 +18,12 @@ module.exports = {
                 exclude: /node_modules/,
                 query: {compact: false}
             },
+            {
+                test: /\.json$/,
+                loader: 'json-loader',
+                exclude: /node_modules/,
+                query: {compact: false}
+            },
         ]
     }
 };
