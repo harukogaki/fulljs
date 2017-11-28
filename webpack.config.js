@@ -7,10 +7,17 @@ module.exports = {
     module:{
         loaders:[
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 loader: 'babel-loader',
+                exclude: /node_modules/,
                 query: {compact: false}
-            }
+            },
+            {
+                test: /\.js$/,
+                loader: 'eslint-loader',
+                exclude: /node_modules/,
+                query: {compact: false}
+            },
         ]
     }
 };
