@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import ContestPreview from './ContestPreview';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       pageHeader: 'Naming Contest',
-      contests: [],
+      contests: this.props.initialContests,
     };
   }
 
@@ -31,6 +32,14 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  initialContests: PropTypes.array.isRequired
+};
+
+App.defaultProps = {
+  initialContests: []
 }
 
 export default App;
