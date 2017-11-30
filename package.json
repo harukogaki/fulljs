@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watchDev": "webpack -wd",
+    "serve": "nodemon --exec babel-node server.js",
     "start": "npm run watchDev & nodemon --exec babel-node server.js --ignore public/",
     "dev": "webpack -wd"
   },

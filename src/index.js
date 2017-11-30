@@ -5,5 +5,5 @@ import axios from 'axios';
 
 axios
   .get('/api/contests')
-  .then(response => hydrate(<App initialContests={response.data.contests}/>, document.getElementById('root')))
+  .then(response => hydrate(<App initialData={response.data}/>, document.getElementById('root')))
   .catch(error => { console.error(error) })
