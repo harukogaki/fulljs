@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import ContestPreview from './ContestPreview';
+import ContestList from './ContestList';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+
+const pushState = (object, url) => window.history.pushState(object, '', url);
+
 
 class App extends Component {
   constructor(props){
@@ -12,23 +14,25 @@ class App extends Component {
       contests: this.props.initialContests,
     };
   }
-
   componentDidMount(){
-    axios
-      .get('/api/contests')
-      .then(response => this.setState({contests: response.data.contests}))
-      .catch(error => { console.error(error) })
+
   }
+
+  fetchContest = (contestId) => {
+    pushState(
+      {currentContestId: contestId},
+      `/contests/${contestId}`
+    )
+  };
+
 
   render(){
     return (
       <div>
         <Header message={this.state.pageHeader}/>
-        <div>
-          {this.state.contests.map(contest =>
-            <ContestPreview key={contest.id} {...contest}/>
-          )}
-        </div>
+        <ContestList
+          onContestClick={this.fetchContest}
+          contests={this.state.contests}/>
       </div>
     );
   }
