@@ -13,9 +13,10 @@ server.use(sassMiddleWare({
 }));
 
 server.set("view engine", "ejs");
-server.get("/", (request, response) => {
-  serverRender()
+server.get(["/", "/contests/:contestId"], (request, response) => {
+  serverRender(request.params.contestId)
     .then(content => {
+      console.log(content)
       response.render('index', { content });
     })
     .catch(console.error);

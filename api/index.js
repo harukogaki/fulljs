@@ -15,6 +15,7 @@ router.get("/contests", (request,response) =>{
 
 router.get("/contests/:contestId", (request,response) =>{
   let contest = contests[request.params.contestId];
+  console.log(contest)
   contest.description = 'heheheheheheh';
   response.send(contest)
 });
